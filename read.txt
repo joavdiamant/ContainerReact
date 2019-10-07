@@ -1,0 +1,40 @@
+this container create for or add action to exist event in child element
+or add new event to child element.
+
+the component get props:
+event - string of evevnt for exemple: 'onClick'/'onChange'...
+newEvent - function for add to old event or set to new event in child element
+
+return:
+child component with override event or new event.
+
+
+exemple:
+
+import React from "react"
+import ContainerEventOverrid from "./"  /** replace to component path **/
+
+class Exemple extends Component {
+    constructor(props) {
+        super(props);
+    }
+
+	alertMassage = (e)=>{
+	alert("Hello! I am an new alert!!");
+	}
+
+	oldAlert = (e)=>{
+	alert("Hello! I am an old alert!!");
+	}
+	 render() {
+		return(
+			<ContainerEventOverrid
+			event='onClick'
+			newEvent= {this.alertMassage}
+			>
+			 <button onClick={this.oldAlert}>
+               click me
+             </button>
+			</ContainerEventOverrid>
+		)
+	 }
